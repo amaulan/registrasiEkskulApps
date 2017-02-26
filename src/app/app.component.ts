@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
+import { ApiService } from './services/api.service';
+
 import { TabsPage } from '../pages/tabs/tabs';
 
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [ApiService]
 })
 export class MyApp {
   rootPage = TabsPage;
