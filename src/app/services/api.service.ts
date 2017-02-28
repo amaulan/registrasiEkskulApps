@@ -11,7 +11,7 @@ export class ApiService
     constructor(http:Http)
     {
         this.http = http;
-        this.baseUrl = "http://localhost:8000/";
+        this.baseUrl = "http://10.0.2.2:8000/";
     }
 
     grabData()
