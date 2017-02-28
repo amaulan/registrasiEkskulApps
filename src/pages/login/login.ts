@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController , AlertController , LoadingController} from 'ionic-angular';
+import { NavController , AlertController , LoadingController , ToastController} from 'ionic-angular';
 // import { FORM_DIRECTIVES, FormBuilder,  ControlGroup, Validators, AbsstractControl } from 'angular2/common';
  
 import { ApiService } from '../../app/services/api.service';
@@ -27,7 +27,8 @@ export class LoginPage {
       public navCtrl: NavController, 
       private apiService: ApiService,
       public alertCtrl: AlertController,
-      public loadingCtrl: LoadingController
+      public loadingCtrl: LoadingController,
+      public toastCtrl: ToastController
   ) {}
 
   doLogin(FormLogin)
@@ -42,11 +43,17 @@ export class LoginPage {
                 localStorage.setItem('credentials', JSON.stringify(data));
                 this.hideLoading();
                 this.navCtrl.setRoot(TabsPage);
+                    let toast = this.toastCtrl.create({
+                    message: 'Login successfully',
+                    duration: 2000,
+                    position : 'top'
+                  });
+                  toast.present();
             }
             else{
                 this.hideLoading();
                 let alert = this.alertCtrl.create({
-                    title : 'Loggin Failder',
+                    title : 'Loggin Failed',
                     subTitle : data.msg,
                     buttons : ['OK']
                 });
