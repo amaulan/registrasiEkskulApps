@@ -11,7 +11,7 @@ export class ApiService
     constructor(http:Http)
     {
         this.http = http;
-        this.baseUrl = "http://10.0.2.2:8000/";
+        this.baseUrl = "http://localhost:8001/";
     }
 
     grabData()
@@ -29,6 +29,6 @@ export class ApiService
             password : password
         }
 
-        return this.http.post(url, data).map(res => res.json());
+       return this.http.post(url, data).map(res => res.json());
     }
 }

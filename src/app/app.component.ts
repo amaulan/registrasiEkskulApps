@@ -9,6 +9,7 @@ import { Storage } from '@ionic/storage';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { Welcome } from '../pages/welcome/welcome';
+// import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html',
@@ -38,7 +39,13 @@ export class MyApp {
       }
       else
       {
-        this.rootPage = TabsPage;
+        // if(localStorage.getItem('credentials') == null)
+        // {
+        //   this.rootPage = LoginPage;
+        // }
+        // else{
+          this.rootPage = TabsPage;
+        // }
       }
 
       // this.storage.get('welcome').then((result) => {

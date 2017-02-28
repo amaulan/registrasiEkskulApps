@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+     Login Page
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<form #FormLogin="ngForm"  (ngSubmit)="doLogin(FormLogin)">
+<ion-list>
+  <ion-item>
+    <ion-label floating>NIS</ion-label>
+    <ion-input required="" [(ngModel)]="FormLogin.nis" name="nis" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input required="" [(ngModel)]="FormLogin.password" name="password" type="password"></ion-input>
+  </ion-item>
+  <br><br>
+  <button [disabled]="!FormLogin.form.valid" ion-button full color="primary">Login</button>
+  <!--<button type="submit" class="custom-button" [disabled]="!authForm.valid" block>Submit</button>
+  </form>-->
+</ion-list>
+</form>
+</ion-content>
+
+
