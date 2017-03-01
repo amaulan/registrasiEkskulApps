@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { Welcome } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
+import { ProfilePage } from '../pages/profile/profile';
 
 // import { LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
@@ -19,7 +20,8 @@ import { Storage } from '@ionic/storage';
     HomePage,
     TabsPage,
     Welcome,
-    LoginPage
+    LoginPage,
+    ProfilePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -32,7 +34,8 @@ import { Storage } from '@ionic/storage';
     HomePage,
     TabsPage,
     Welcome,
-    LoginPage
+    LoginPage,
+    ProfilePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
 })

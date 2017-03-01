@@ -1,0 +1,74 @@
+<!--
+  Generated template for the Profile page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<ion-card>
+
+  <ion-fab right top>
+    <button ion-fab>
+      <ion-icon name="person"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-item>
+    <!--<ion-icon name="football" item-left large></ion-icon>-->
+    <h2>Nama</h2>
+    <p>{{ userBind.nama }}</p>
+  </ion-item>
+
+  <ion-item>
+    <!--<ion-icon name="wine" item-left large ></ion-icon>-->
+    <h2>Kelas</h2>
+    <p>{{ userBind.kelas }}</p>
+  </ion-item>
+
+  <ion-item>
+    <!--<ion-icon name="wine" item-left large ></ion-icon>-->
+    <h2>NIS</h2>
+    <p>{{ userBind.nis }}</p>
+  </ion-item>
+
+  <!--<ion-item>
+    <span item-left>18 min</span>
+    <span item-left>(2.6 mi)</span>
+    <button ion-button icon-left clear item-right>
+      <ion-icon name="navigate"></ion-icon>
+      Start
+    </button>
+  </ion-item>-->
+
+</ion-card>
+
+<ion-list>
+  <ion-item-sliding *ngFor="let item of userEkskulBind">
+    <ion-item >
+      <!--<ion-avatar item-left>-->
+        <ion-icon name="arrow-forward" item-left large></ion-icon>
+      <!--</ion-avatar>-->
+      <h2>{{ item.ekskul_nama }}</h2>
+    </ion-item>
+    <ion-item-options side="left">
+      <button ion-button color="primary">
+        <ion-icon name="football"></ion-icon>
+        Text
+      </button>
+      <button ion-button color="secondary">
+        <ion-icon name="call"></ion-icon>
+        Call
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+</ion-content>

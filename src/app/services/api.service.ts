@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http , Headers} from '@angular/http';
 import 'rxjs/Rx';
 
 @Injectable()
@@ -11,7 +11,22 @@ export class ApiService
     constructor(http:Http)
     {
         this.http = http;
-        this.baseUrl = "http://localhost:8001/";
+        this.baseUrl = "http://192.168.43.55:8000/";
+    }
+
+    grabDataEndpoint(endpoint:String)
+    {
+        let _localStorage = localStorage.getItem('credentials');
+        let _parseStorage = JSON.parse(_localStorage);
+
+        let url = this.baseUrl + '' + endpoint;
+
+        let header = new Headers;
+        header.append('token',_parseStorage.data.token);
+
+        return this.http.post(url,{},{
+            "headers" : header 
+        }).map((response) => response.json());
     }
 
     grabData()

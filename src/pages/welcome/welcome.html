@@ -1,26 +1,27 @@
 <ion-slides [options]="slideOptions">
  
   <ion-slide style="background-color : #2ecc71">
-    <img src="images/slide1.png" />
+    <!--<img src="images/slide1.png" />-->
+      <ion-icon name="ionic" style="font-size: 300px; color: white"></ion-icon>
   </ion-slide>
  
   <ion-slide style="background-color : #3498db">
-    <img src="images/slide2.png" />
+      <ion-icon name="heart" style="font-size: 300px;" color="danger"></ion-icon>
   </ion-slide>
  
   <ion-slide style="background-color : #e67e22" >
-    <img src="images/slide3.png" />
+      <ion-icon name="map" style="font-size: 300px;" color="secondary"></ion-icon>
   </ion-slide>
  
   <ion-slide style="background-color : #e74c3c">
     <ion-row>
       <ion-col>
-        <img src="images/slide4.png" />
+        <ion-icon name="lock" style="font-size: 300px; color: white"></ion-icon>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <button ion-button color="light" (click)="goToHome()">Start Using My App</button>
+        <button ion-button color="primary" (click)="goToHome()">Start Using My App</button>
       </ion-col>
     </ion-row>
   </ion-slide>
