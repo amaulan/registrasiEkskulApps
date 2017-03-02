@@ -25,7 +25,7 @@ export class TabsPage {
 
   checkIfLogin()
   {
-      if(localStorage.getItem('credentials') == null)
+      if(window.localStorage.getItem('credentials') == null)
       {
         this.navCtrl.setRoot(LoginPage);
       }

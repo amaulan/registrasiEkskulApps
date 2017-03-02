@@ -25,6 +25,16 @@ export class ProfilePage {
       this.getUserEkskul();
   }
 
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      this.getUserEkskul();
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
   showUserHasLogin()
   {
     let getUserFromStorage = localStorage.getItem('credentials');

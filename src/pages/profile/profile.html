@@ -14,6 +14,10 @@
 
 
 <ion-content >
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
 <ion-card>
 
   <ion-fab right top>
@@ -60,8 +64,8 @@
       <h2>{{ item.ekskul_nama }}</h2>
     </ion-item>
     <ion-item-options side="left">
-      <button ion-button color="primary">
-        <ion-icon name="football"></ion-icon>
+      <button ion-button color="danger">
+        <ion-icon name="trash"></ion-icon>
         Text
       </button>
       <button ion-button color="secondary">

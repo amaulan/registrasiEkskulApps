@@ -29,6 +29,21 @@ export class ApiService
         }).map((response) => response.json());
     }
 
+    sendData(endpoint:String, body:any)
+    {
+        let _localStorage = localStorage.getItem('credentials');
+        let _parseStorage = JSON.parse(_localStorage);
+
+        let url = this.baseUrl + '' + endpoint;
+
+        let header = new Headers;
+        header.append('token',_parseStorage.data.token);
+
+        return this.http.post(url,body,{
+            "headers" : header 
+        }).map((response) => response.json());
+    }
+
     grabData()
     {
         let url = this.baseUrl + 'ekskul';
