@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { App , NavController } from 'ionic-angular';
 
 import { ApiService } from '../../app/services/api.service';
 
@@ -15,7 +15,7 @@ export class HomePage {
   items: any;
   siswa_id: any;
 
-  constructor(public navCtrl: NavController, private apiService: ApiService) {
+  constructor( public navCtrl: NavController, private apiService: ApiService) {
 
   }
 

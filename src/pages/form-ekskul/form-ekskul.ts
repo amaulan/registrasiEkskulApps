@@ -4,6 +4,7 @@ import { NavController, NavParams , AlertController , LoadingController, ToastCo
 import { ApiService } from '../../app/services/api.service';
 
 import { TabsPage } from '../tabs/tabs';
+import { ProfilePage } from '../profile/profile';
 
 /*
   Generated class for the FormEkskul page.
@@ -13,7 +14,8 @@ import { TabsPage } from '../tabs/tabs';
 */
 @Component({
   selector: 'page-form-ekskul',
-  templateUrl: 'form-ekskul.html'
+  templateUrl: 'form-ekskul.html',
+  providers: [ProfilePage]
 })
 export class FormEkskulPage {
 
@@ -28,7 +30,8 @@ export class FormEkskulPage {
     private apiService: ApiService,
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    public profilePage: ProfilePage
   ) {}
 
   ngOnInit()
@@ -65,6 +68,7 @@ export class FormEkskulPage {
                 position : 'top'
               });
               toast.present();
+              console.log(this.profilePage.getUserEkskul())
         }
         else{
           this.hideLoading();

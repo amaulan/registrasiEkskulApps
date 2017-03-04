@@ -9,6 +9,7 @@ import { Storage } from '@ionic/storage';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { Welcome } from '../pages/welcome/welcome';
+// import { EkskulKuPage } from '../pages/ekskul-ku/ekskul-ku';
 // import { LoginPage } from '../pages/login/login';
 
 @Component({

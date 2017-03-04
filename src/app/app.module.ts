@@ -9,6 +9,8 @@ import { Welcome } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
 import { FormEkskulPage } from '../pages/form-ekskul/form-ekskul';
+import { EkskulKuPage } from '../pages/ekskul-ku/ekskul-ku';
+
 
 // import { LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
@@ -23,7 +25,8 @@ import { Storage } from '@ionic/storage';
     Welcome,
     LoginPage,
     ProfilePage,
-    FormEkskulPage
+    FormEkskulPage,
+    EkskulKuPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -38,7 +41,8 @@ import { Storage } from '@ionic/storage';
     Welcome,
     LoginPage,
     ProfilePage,
-    FormEkskulPage
+    FormEkskulPage,
+    EkskulKuPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
 })

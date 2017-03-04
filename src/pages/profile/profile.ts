@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams , LoadingController , AlertController , ToastController } from 'ionic-angular';
 
 import { ApiService } from '../../app/services/api.service';
 /*
@@ -16,11 +16,16 @@ export class ProfilePage {
   
   userBind: any;
   userEkskulBind: any;
+  loader: any;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private apiService: ApiService) {
+    private apiService: ApiService,
+    public alertCtrl: AlertController,
+    public loadingCtrl: LoadingController,
+    public toastCtrl: ToastController
+    ) {
       this.showUserHasLogin();
       this.getUserEkskul();
   }
@@ -33,6 +38,47 @@ export class ProfilePage {
       console.log('Async operation has ended');
       refresher.complete();
     }, 2000);
+  }
+
+  unRegEkskul(ekskul_id)
+  {
+    this.showLoading()
+    let userId = this.userBind.id;
+
+    let body = {
+      siswa_id : userId,
+      ekskul_id : ekskul_id
+    };
+
+      let alert = this.alertCtrl.create({
+        title: 'Confirm',
+        message: 'Serously ?',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => {
+                this.hideLoading();
+            }
+          },
+          {
+            text: 'Ok',
+            handler: () => {
+              this.apiService.sendData('siswa-ekskul/unreg', body).subscribe((res) => {
+                let alert = this.alertCtrl.create({
+                    title : 'Success Deleting Data',
+                    buttons : ['OK']
+                });
+                alert.present();
+                this.getUserEkskul();
+                this.hideLoading()
+              });
+            }
+          }
+        ]
+      });
+    alert.present();
+
   }
 
   showUserHasLogin()
@@ -50,10 +96,23 @@ export class ProfilePage {
   {
     this.apiService.grabDataEndpoint("/siswa-ekskul").subscribe((data) => {
       this.userEkskulBind = data.data;
-      console.log(data);
     })
 
-    // console.log(this.userEkskulBind);
+    console.log(this.userEkskulBind);
+  }
+
+  showLoading()
+  {
+    this.loader =  this.loadingCtrl.create({
+      content : "Logging...."
+    });
+
+    this.loader.present();
+  }
+
+  hideLoading()
+  {
+      this.loader.dismiss();
   }
 
 }
