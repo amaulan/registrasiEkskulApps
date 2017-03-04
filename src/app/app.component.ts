@@ -3,6 +3,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { ApiService } from './services/api.service';
+import { GlobalVar } from '../providers/global-var';
 
 import { LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
@@ -14,7 +15,7 @@ import { Welcome } from '../pages/welcome/welcome';
 
 @Component({
   templateUrl: 'app.html',
-  providers: [ApiService]
+  providers: [ApiService, GlobalVar]
 })
 export class MyApp {
   rootPage :any;

@@ -6,13 +6,35 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>ekskul-ku</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+<ion-list>
+  <ion-item-sliding *ngFor="let item of userEkskulBind">
+    <ion-item >
+      <!--<ion-avatar item-left>-->
+        <ion-icon name="arrow-forward" item-left large></ion-icon>
+      <!--</ion-avatar>-->
+      <h2>{{ item.ekskul_nama }}</h2>
+    </ion-item>
+    <ion-item-options side="left">
+      <button (click)="unRegEkskul(item.id)" ion-button color="danger">
+        <ion-icon name="trash"></ion-icon>
+        Text
+      </button>
+      <!--<button (click)="unRegEkskul(item.id)" ion-button color="secondary">
+        <ion-icon name="call"></ion-icon>
+        Call
+      </button>-->
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
 </ion-content>

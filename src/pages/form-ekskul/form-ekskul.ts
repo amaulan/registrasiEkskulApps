@@ -48,6 +48,7 @@ export class FormEkskulPage {
 
   doSubmit(params)
   {
+    localStorage.setItem('e','1');
     let data = {
       siswa_id : this.FormPendaftaran.siswa_id,
       ekskul_id : this.FormPendaftaran.ekskul_id,

@@ -30,6 +30,12 @@ export class ProfilePage {
       this.getUserEkskul();
   }
 
+  ngOnInit()
+  {
+      console.log(localStorage.getItem('e'));
+
+  }
+
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
 
